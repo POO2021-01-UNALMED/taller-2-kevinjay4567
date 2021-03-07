@@ -3,6 +3,6 @@ package test;
 public class Motor {
     int numeroCilindros;
     String tipo;
-    int registro;
+    public int registro;
 
 }

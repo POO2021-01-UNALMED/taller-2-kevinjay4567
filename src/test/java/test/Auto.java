@@ -1,15 +1,27 @@
 package test;
 
-import java.util.ArrayList;
-
 public class Auto {
     String modelo;
     int precio;
-    Asiento asientos = new Asiento();
+    Asiento[] asientos = new Asiento[cantidadAsientos()];
     String marca;
     Motor motor;
     int registro;
-    int cantidadCreados;
+    static int cantidadCreados;
 
-
+    public int cantidadAsientos(){
+        return asientos.length;
+    }
+    public String verificarIntegridad(){
+        if (this.registro == motor.registro){
+            for (Asiento asiento : asientos){
+                if (this.registro != asiento.registro){
+                    return "Las piezas no son originales";
+                }
+            }
+        } else {
+            return "Las piezas no son originales";
+        }
+        return "Auto original";
+    }
 }
